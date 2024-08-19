@@ -40,7 +40,9 @@ class Remover:
             ckpt   (str, optional): specifying model checkpoint. find downloaded checkpoint or try download if not specified.
             fast   (bool, optional, DEPRECATED): replaced by mode argument. use fast mode if True.
         """
-        home_dir = os.path.expanduser(os.path.join("~", ".transparent-background"))
+        # Change model directory to project directory
+        # home_dir = os.path.expanduser(os.path.join("~", ".transparent-background"))
+        home_dir = os.path.join(os.getcwd(), ".transparent-background")
         os.makedirs(home_dir, exist_ok=True)
 
         if not os.path.isfile(os.path.join(home_dir, "config.yaml")):
